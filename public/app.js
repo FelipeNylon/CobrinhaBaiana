@@ -4,6 +4,10 @@
             var stage = document.getElementById('stage')
             var context = stage.getContext('2d')
             document.addEventListener("keydown", keyPush);
+            var cima = document.querySelector('#cima')
+            var baixo = document.querySelector('#baixo')
+            var direita = document.querySelector('#direita')
+            var esquerda = document.querySelector('#esquerda')
             setInterval(game, 60)
             
             const vel = 1;
@@ -74,7 +78,27 @@
 
             }
 
+            cima.addEventListener('click', () => {
+                vx = 0;
+                vy = -vel;
+            })
+
+            baixo.addEventListener('click', () => {
+                vx = 0;
+                vy = vel;
+            })
+            
+            direita.addEventListener('click', () => {
+                vx = vel;
+                vy = 0;
+            })
+            esquerda.addEventListener('click', () => {
+                vx = -vel;
+                vy = 0;
+            })
+
             function keyPush(event) {
+              
                 switch (event.keyCode) {
                     case 37:  //esquerda
                         vx = -vel;
